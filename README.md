@@ -64,6 +64,23 @@ python scripts/build_index.py --path .\data\sample_code
 
 The fallback keeps the complete pipeline usable offline but is less capable than `BAAI/bge-small-en-v1.5`.
 
+## Reproducible Docker setup
+
+Docker is the most consistent way to run the application across machines:
+
+```powershell
+docker compose build
+docker compose up -d
+```
+
+Open `http://localhost:8000`, then build the index from `/app/data/sample_code`. The compose file persists the generated index in the `codeseek-index` volume and mounts the sample source read-only. To stop the service:
+
+```powershell
+docker compose down
+```
+
+The first index build downloads `BAAI/bge-small-en-v1.5` inside the container when network access is available. For an offline demo, build with `ACI_OFFLINE_FALLBACK=1` in the container environment.
+
 ## CLI
 
 ```powershell
@@ -129,6 +146,10 @@ python -m pytest
 ```
 
 The test suite covers source loading, Python and fallback chunking, query preprocessing, BM25 ranking, API validation, persisted hybrid indexes, and end-to-end search behavior.
+
+## Submission reproducibility
+
+The submission pack is in `docs/submission/`. It contains the six-minute demo script, presentation outline, artifact checklist, and the exact commands used to reproduce the application. The final judged source snapshot is tagged `PRISM_GENAI_HACKATHON_Y2026`. The repository contains source, setup, documentation, tests, sample data, and evaluation assets; the finished PPT and recorded video remain portal-uploaded presentation media and are explicitly tracked in the checklist.
 
 ## Configuration
 

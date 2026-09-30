@@ -1,0 +1,15 @@
+services:
+  codeseek:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      ACI_INDEX_DIR: /app/data/index
+      ACI_MODEL: BAAI/bge-small-en-v1.5
+    volumes:
+      - codeseek-index:/app/data/index
+      - ./data/sample_code:/app/data/sample_code:ro
+    restart: unless-stopped
+
+volumes:
+  codeseek-index:
