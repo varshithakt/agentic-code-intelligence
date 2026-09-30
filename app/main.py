@@ -8,7 +8,7 @@ from app.retrieval.search import CodeSearch
 from app.utils.helpers import build_code_index
 from app.config import INDEX_DIR, MODEL_NAME
 
-app=FastAPI(title="Agentic Code Intelligence")
+app=FastAPI(title="CodeSeek")
 STATIC=Path(__file__).resolve().parents[1]/"static"
 app.mount("/static",StaticFiles(directory=STATIC),name="static")
 manager=IndexManager(INDEX_DIR); searcher=None; index_status={"index_status":"Not built","files_indexed":0,"chunks_indexed":0}
