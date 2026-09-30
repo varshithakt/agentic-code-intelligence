@@ -10,6 +10,8 @@ class SearchRequest(BaseModel):
     alpha: float = Field(default=0.7, ge=0.0, le=1.0)
     rerank: bool | None = None
     candidate_pool: int = Field(default=30, ge=5, le=200)
+    candidate_k: int | None = Field(default=None, ge=5, le=200)
+    version_id: str = Field(default="current", max_length=80)
     @field_validator("query")
     @classmethod
     def query_must_contain_text(cls, value):

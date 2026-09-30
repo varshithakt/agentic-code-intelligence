@@ -136,6 +136,27 @@ Environment variables include `ACI_MODEL`, `ACI_INDEX_DIR`, `ACI_MAX_FILE_BYTES`
 
 ## Current scope
 
+### Evaluation
+
+Run the local development benchmark after building an index:
+
+```powershell
+python scripts/evaluate.py --top-k 10
+```
+
+The report compares semantic-only, BM25-only, hybrid, and hybrid plus reranker strategies using the ten queries in `data/evaluation/sample_queries.json`. It reports real `NDCG@10`, `MRR`, query count, and measured evaluation latency. These are development measurements, not official CoIR or MTEB results. The dashboard's Evaluation Lab calls the same endpoint and shows `Not evaluated` until it runs.
+
+The official benchmark adapter is prepared behind an optional dependency:
+
+```powershell
+python -m pip install mteb
+python scripts/evaluate.py --strategy mteb --model BAAI/bge-small-en-v1.5 --output data/evaluation/mteb
+```
+
+This invokes the installed MTEB `AppsRetrieval` task when available; it does not fabricate or substitute local metrics.
+
+The scoring formula is deliberately bounded: each candidate-set score is min-max normalized with safe handling for empty and constant lists, then `hybrid_score = alpha * semantic_normalized + (1 - alpha) * bm25_normalized`. The identifier, filename, and symbol signals are factual booleans exposed as metadata; they are not added to the score. Therefore the displayed relevance percentage is always `hybrid_score * 100` and cannot exceed 100%.
+
 Implemented: local indexing, CPU embeddings, FAISS retrieval, BM25 retrieval, hybrid fusion, optional reranking, retrieval diagnostics, and a professional dashboard.
 
 Planned: stronger cross-encoder experiments, query classification, hybrid evaluation against CoIR, code-version retrieval, evolutionary retrieval, and advanced ranking research. Cloud deployment, user accounts, external vector databases, and LLM-generated answers are intentionally outside the current scope.

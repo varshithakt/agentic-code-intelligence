@@ -1,0 +1,12 @@
+[
+  {"query":"Where is authentication handled?","relevant_chunk_ids":["9ee026c5a7dd097770ba5b67afa90e4a0d7bbac8","a5642509caca4179be23270e5f34cf8f5adc6bca","016a1e0c981a10e863ca8f0c214cfe612d24bcd7"]},
+  {"query":"Where is JWT token validation performed?","relevant_chunk_ids":["016a1e0c981a10e863ca8f0c214cfe612d24bcd7"]},
+  {"query":"Where is the database connection initialized?","relevant_chunk_ids":["ad8786b4515bba76b6b641afdc998d5e90952a62"]},
+  {"query":"How is user input normalized?","relevant_chunk_ids":["3d72d423110acd26f32bda7231f5ce78d3cc26a4","7e85aad700432a5bae472795880d717660b1eed0"]},
+  {"query":"Where are API errors handled?","relevant_chunk_ids":["9fb431aa69fd36a7f1ca2409498932b7195613df"]},
+  {"query":"Where is the authorization header checked?","relevant_chunk_ids":["9ee026c5a7dd097770ba5b67afa90e4a0d7bbac8","a5642509caca4179be23270e5f34cf8f5adc6bca"]},
+  {"query":"Where is the user profile retrieved?","relevant_chunk_ids":["a5642509caca4179be23270e5f34cf8f5adc6bca"]},
+  {"query":"Where are uploaded files validated?","relevant_chunk_ids":["3727f4035f76a8038105127ff359d215cde8e21b"]},
+  {"query":"Where are passwords hashed during registration?","relevant_chunk_ids":["734f5fbe4c08a28e69df69a882e876e4c0646393"]},
+  {"query":"Where are user permissions checked?","relevant_chunk_ids":["cd0969d7a9d6e420caf0123ef2ae7b5ce3e96f1b","8255aebe928e58c9bdd23b13f995b31f3e4df85"]}
+]
