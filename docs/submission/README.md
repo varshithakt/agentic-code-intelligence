@@ -10,8 +10,7 @@ This directory records the reproducibility and submission materials included in 
 - Optional reranking and retrieval timing diagnostics.
 - Local NDCG@10 and MRR evaluation with ten development queries.
 - MTEB `AppsRetrieval` adapter in `app/evaluation/mteb_adapter.py`.
-- Six-minute demo script in `docs/submission/demo-script.md`.
-- Presentation outline in `docs/submission/presentation-outline.md`.
+- Presentation and demo-video links should be added by the submitter in the checklist below.
 - Reproducible Python, Docker, and Docker Compose setup.
 
 ## External media checklist
@@ -22,8 +21,7 @@ The final PowerPoint deck and recorded demo video are presentation media rather 
 |---|---|---|
 | Source code | Entire repository | Included |
 | Setup documentation | `README.md` | Included |
-| Six-minute demo narration | `docs/submission/demo-script.md` | Included |
-| PPT content outline | `docs/submission/presentation-outline.md` | Included |
+| Presentation link | `[Add PPT or Slides link here]` | To be added by submitter |
 | Recorded demo video | External portal upload | Must be uploaded by submitter |
 | PowerPoint file | External portal upload | Must be uploaded by submitter |
 | Judged source snapshot | `PRISM_GENAI_HACKATHON_Y2026` | Required tag |
