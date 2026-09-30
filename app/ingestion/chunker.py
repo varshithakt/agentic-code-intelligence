@@ -6,7 +6,8 @@ from app.config import MIN_CHUNK_LINES, MAX_CHUNK_LINES, CHUNK_OVERLAP
 def _chunk(file_path, language, symbol, start, end, lines):
     code = "\n".join(lines[start-1:end]).rstrip()
     key = f"{file_path}:{start}:{end}:{code}"
-    return {"chunk_id": hashlib.sha1(key.encode()).hexdigest(), "file_path": file_path, "language": language, "symbol_name": symbol, "start_line": start, "end_line": end, "code": code}
+    symbol_type = "class" if symbol[:1].isupper() else ("block" if symbol in {"module", "block"} else "function")
+    return {"chunk_id": hashlib.sha1(key.encode()).hexdigest(), "file_path": file_path, "file_name": file_path.rsplit("/", 1)[-1], "language": language, "symbol_name": symbol, "symbol_type": symbol_type, "start_line": start, "end_line": end, "content_hash": hashlib.sha1(code.encode()).hexdigest(), "code": code}
 
 def _python_ranges(source):
     tree = ast.parse(source)

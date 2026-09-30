@@ -6,7 +6,7 @@ from app.models.schemas import BuildRequest, SearchRequest
 from app.retrieval.index import IndexManager
 from app.retrieval.search import CodeSearch
 from app.utils.helpers import build_code_index
-from app.config import INDEX_DIR
+from app.config import INDEX_DIR, MODEL_NAME
 
 app=FastAPI(title="Agentic Code Intelligence")
 STATIC=Path(__file__).resolve().parents[1]/"static"
@@ -32,7 +32,20 @@ def search(req:SearchRequest):
         try: searcher=CodeSearch(manager=IndexManager(INDEX_DIR).load())
         except Exception: raise HTTPException(409,"Build an index before searching")
     try:
-        results,latency=searcher.search(req.query,req.top_k,req.literal_filter)
-        return {"results":results,"latency_ms":round(latency,2)}
+        results,latency,details=searcher.search(req.query,req.top_k,req.literal_filter,req.alpha,req.rerank,req.candidate_pool)
+        return {"results":results,**details}
     except ValueError as exc: raise HTTPException(400,str(exc)) from exc
     except Exception as exc: raise HTTPException(500,"Search failed. Check the local model and index files.") from exc
+
+@app.post("/search")
+def search_alias(req:SearchRequest):
+    return search(req)
+
+@app.get("/stats")
+def stats():
+    global manager
+    if manager.index is None:
+        try: manager.load()
+        except Exception: pass
+    loaded = manager.index is not None
+    return {"files": len({item.get("file_path") for item in manager.metadata}), "chunks": len(manager.metadata), "embedding_model": getattr(getattr(searcher, "embedder", None), "model_name", MODEL_NAME), "embedding_dimension": manager.index.d if loaded else None, "faiss_ready": loaded, "bm25_ready": loaded and bool(manager.bm25.tokens), "reranker_ready": True, "index_creation_time": manager.created_at, "supported_languages": sorted({item.get("language") for item in manager.metadata})}

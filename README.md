@@ -61,4 +61,6 @@ Set `ACI_MODEL` to change the sentence-transformers model, `ACI_INDEX_DIR` to re
 
 ## Limitations
 
-This first prototype has no sophisticated reranker, query classifier, hybrid/BM25 retrieval, code-version or evolutionary retrieval, or NDCG/MRR evaluation against CoIR. Brace-based parsing is intentionally approximate, and the local sample tokens/password handling are illustrative only. A local folder path supplied through the UI must be accessible to the server process.
+Phase 2 now includes local hybrid retrieval: deterministic query preprocessing, FAISS semantic candidates, a persisted BM25 keyword index, normalized score fusion, optional lightweight reranking, structured timing metadata, and `/stats`. The dashboard exposes semantic weight, candidate pool, top K, reranking, examples, copy buttons, and index health. The search API accepts `POST /api/search` or `POST /search` with `{"query":"...","top_k":5,"alpha":0.7,"rerank":false,"candidate_pool":30}`. Results include `semantic_score`, `bm25_score`, `hybrid_score`, optional `rerank_score`, and candidate counts. `GET /stats` reports index health. Press `Ctrl+Enter` in the search box to submit.
+
+It still has no sophisticated query classifier, code-version or evolutionary retrieval, or NDCG/MRR evaluation against CoIR. The lightweight reranker is lexical and intentionally CPU-friendly. Brace-based parsing is intentionally approximate, and the local sample tokens/password handling are illustrative only. A local folder path supplied through the UI must be accessible to the server process.
