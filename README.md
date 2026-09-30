@@ -149,7 +149,12 @@ The test suite covers source loading, Python and fallback chunking, query prepro
 
 ## Submission reproducibility
 
-The submission pack is in `docs/submission/`. It contains the artifact checklist and the exact commands used to reproduce the application. Add the final presentation and demo-video links to the submission checklist before uploading. The final judged source snapshot is tagged `PRISM_GENAI_HACKATHON_Y2026`. The repository contains source, setup, documentation, tests, sample data, and evaluation assets.
+The submission pack is in `docs/submission/`. It contains the artifact checklist and the exact commands used to reproduce the application. The final presentation and demo-video links are recorded in the checklist. The final judged source snapshot is tagged `PRISM_GENAI_HACKATHON_Y2026`. The repository contains source, setup, documentation, tests, sample data, and evaluation assets.
+
+### Submission media
+
+- [Presentation deck](https://drive.google.com/file/d/1uQgVzY08diWlhM5EVGB6Vn_llDu_s26C/view?usp=drivesdk)
+- [Demo video](https://drive.google.com/file/d/1f1Rzo-E4eMA0EKGDSEMAVfxkrFoCsLIa/view?usp=drivesdk)
 
 ## Configuration
 

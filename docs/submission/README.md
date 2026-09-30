@@ -10,20 +10,20 @@ This directory records the reproducibility and submission materials included in 
 - Optional reranking and retrieval timing diagnostics.
 - Local NDCG@10 and MRR evaluation with ten development queries.
 - MTEB `AppsRetrieval` adapter in `app/evaluation/mteb_adapter.py`.
-- Presentation and demo-video links should be added by the submitter in the checklist below.
+- Presentation and demo-video links are included in the checklist below.
 - Reproducible Python, Docker, and Docker Compose setup.
 
 ## External media checklist
 
-The final PowerPoint deck and recorded demo video are presentation media rather than executable source files. They should be uploaded to the hackathon submission portal and must reference the repository URL and the immutable tag below. Their exact binary files are not invented or included here because no finished deck or recording was supplied to this workspace.
+The final PowerPoint deck and recorded demo video are presentation media hosted on Google Drive. They reference the repository URL and the immutable tag below.
 
 | Submission item | Repository reference | Status |
 |---|---|---|
 | Source code | Entire repository | Included |
 | Setup documentation | `README.md` | Included |
-| Presentation link | `[Add PPT or Slides link here]` | To be added by submitter |
-| Recorded demo video | External portal upload | Must be uploaded by submitter |
-| PowerPoint file | External portal upload | Must be uploaded by submitter |
+| Presentation link | [Google Drive presentation](https://drive.google.com/file/d/1uQgVzY08diWlhM5EVGB6Vn_llDu_s26C/view?usp=drivesdk) | Included |
+| Recorded demo video | [Google Drive demo video](https://drive.google.com/file/d/1f1Rzo-E4eMA0EKGDSEMAVfxkrFoCsLIa/view?usp=drivesdk) | Included |
+| PowerPoint file | [Google Drive PowerPoint](https://drive.google.com/file/d/1uQgVzY08diWlhM5EVGB6Vn_llDu_s26C/view?usp=drivesdk) | Included |
 | Judged source snapshot | `PRISM_GENAI_HACKATHON_Y2026` | Required tag |
 
 ## Final verification
